@@ -1,0 +1,25 @@
+from alipay import AliPay
+alipay_public_key_string="""-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqEiOLQ+VE9irAz8xQXs3T9PYbVL+uv0Fh35Y6UgHYH10DSm/levYJbLddGxmpSsKQksL1OoSQbsGDygQQsyN5Gvd5T32ZSaLbgPG0DFlqCxtemE5ug1x0aH+S5Fh8xBa2OrO9CMZu/0uycGqCsETEcuhUXssX6qsnpLVPKTkAG4IFQlq7HyKkKypGycjOSNBGmrqGjV+fZ1sM43fc7usbxXF5fZusXj4qiy7qle59zRtzJzt0Hp9cSR7ppO/pazmPmECvZ8yuvcSSbYw6CVaB1Z37RdmhZdNE4iDTDUpkh2PSE++jAsTtxgU+iIWfq637ADH0OOTVOHc/JF2JlMUdQIDAQAB
+-----END PUBLIC KEY-----"""
+alipay_private_key_string="""-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAqEiOLQ+VE9irAz8xQXs3T9PYbVL+uv0Fh35Y6UgHYH10DSm/levYJbLddGxmpSsKQksL1OoSQbsGDygQQsyN5Gvd5T32ZSaLbgPG0DFlqCxtemE5ug1x0aH+S5Fh8xBa2OrO9CMZu/0uycGqCsETEcuhUXssX6qsnpLVPKTkAG4IFQlq7HyKkKypGycjOSNBGmrqGjV+fZ1sM43fc7usbxXF5fZusXj4qiy7qle59zRtzJzt0Hp9cSR7ppO/pazmPmECvZ8yuvcSSbYw6CVaB1Z37RdmhZdNE4iDTDUpkh2PSE++jAsTtxgU+iIWfq637ADH0OOTVOHc/JF2JlMUdQIDAQABAoIBAQCjT0YqlKSnzeyoCftTALB816mA7rol3MYw53yBZ1VBXn3xCELUyzvH2fzvrwMt5sbd7tZcmYt+HnGS495j9P7+XW/JuIgVQYKuERwvjsCIpBTaXuAWnlWGix6tVzknGQgQ2k5cvnOK6/kr8rWCGjzXWDYFTPOTI57BhN1LLPnXL1y5frlNTnPcxyC4Ayj5ab5btdF8MkgQVOOcd8ooPxXi3hPJkX1l4wlrjFkquHH+OF+e9qr6JtEIEodeHL5bVZu4y2nWXk76sAI3xRFM/rdcRFSDKouAErxJiZwHyq0CrDp8xyh44xZPG9H+fiw197BdWomNhHI7ujjq4m4ypS4BAoGBAOA+Kkb1lZSbpVWTio/19RFQ7z8eXTZfSq/QVpwyHNkC+iKG3e5lO8MWeV6Hbh/SoZ9Wj7GJkqAfpL6T3CSNtcWT9xgfDftV93E9cZlM2FTdKKFWOHRHu93NRZGYRa5dLACR+/11Jmq6uZ1ecVceUUfShNcrJlEdxva6O2tQwro5AoGBAMAdmpreE3VM1FRe1EeJ8qXAIL4q6G36Ay7TS3VcgOLe/HDI40bSMdAVk8mgTDcxmv6KUCyPOPd4Yj6VgI5PNOz09o+cibljEg+IBS8CN0yK/k5ZDFr7ViLX+wxsnWnDr9Bd1Nwz5GfdtHCs8xp9RBoqkkKI9ZyivGb6rMGGE9wdAoGBALQhm8p2mprO0OhGZccw95TaY+VbGduEfrVucTR1mPDGUHKNzhcjoPccxZAm0FKl24joevNNpMgVwzwIAI4oe7zkGFh7Ebs1GlkP14Ii1aCOK4Y2gZD+0q3gqCLFpCvl0mP+4OKAScTwjAwbAobN5tMADA/gLJ56ggpOHU8eh94ZAoGAfOSB9r36bl5VBshjPmKqsSB26MniMmS/HvjT7GcHjvWhrPyb7BWHtpvgaMph4dvIxENMnbs6MH89dywf1+QcJxOVGoWMb029lwU5QXcyVftiGbMAOkF8nMhF96zApNpHeLEXSVQe33sc68czf3wCAvS8Aq8g5QRScKv0FRdB3+0CgYAPHbICLemEJ84+aCwV7FQ9v7I4nLqtgsmb7De3SxqNvPNBr5BYUcSWc+Ig6PpREYDVuBwL3dfzBAkT225CvNZWqlrpXy31TFTqGEIsQ2UFW9R0JGXfYxWhdLnyxz3WKau31fJjaUOimPoTINzRlgr2758SJimAty12PPyB7s6Clw==
+-----END RSA PRIVATE KEY-----"""
+
+alipay=AliPay(
+    appid="2016101200667738",
+    app_notify_url=None,
+    app_private_key_string=alipay_private_key_string,
+    alipay_public_key_string=alipay_public_key_string,
+    sign_type="RSA2"
+)
+
+order_string=alipay.api_alipay_trade_page_pay(
+    out_trade_no="1000000002",
+    total_amount=str(999),
+    subject="洗浴按摩",
+    return_url=None,
+    notify_url=None
+)
+result="https://openapi.alipaydev.com/gateway.do?"+order_string
+print(result)
