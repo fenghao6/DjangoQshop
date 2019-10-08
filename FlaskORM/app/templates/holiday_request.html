@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block lable %}
+    请假条申请
+{% endblock %}
+
+{% block content %}
+    <form action="" method="post">
+        <table class="table table-bordered">
+            <tr>
+                <th colspan="4" style="text-align: center;color: royalblue;font-size: 55px">请假条</th>
+            </tr>
+            <tr>
+                <th>姓名</th>
+                    <td width="30%"><input type="text" name="request_name" placeholder="请假人姓名" class="form-control form-control-user"></td>
+                <th>请假类型</th>
+                    <td width="30%">
+                        <select name="request_type" id="" class="form-control form-control-user">
+                            <option>事假</option>
+                            <option>产假</option>
+                            <option>病假</option>
+                            <option>年假</option>
+                            <option>婚假</option>
+                        </select>
+                    </td>
+            </tr>
+            <tr>
+                <th>开始日期</th>
+                <td width="30%">
+                    <input type="date" name="request_startdate" class="form-control form-control-user">
+                </td>
+                <th>结束日期</th>
+                <td width="30%">
+                    <input type="date"name="request_enddate" class="form-control form-control-user">
+                </td>
+            </tr>
+            <tr>
+                <th>联系方式</th>
+                <td width="30%">
+                    <input type="text" name="request_phone" class="form-control form-control-user">
+                </td>
+
+
+                <th>请假天数</th>
+                <td width="30%">
+                    <input type="text" name="request_day" class="form-control form-control-user">
+                </td>
+            </tr>
+            <tr>
+                <th>请假描述</th>
+
+                <td colspan="3">
+                    <textarea name="request_description" id="" cols="60" rows="5" class="form-control form-control-user"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" style="text-align: center">
+                    <input type="submit" value="提交审核" class="btn btn-primary btn-user btn-block">
+                </td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}
+
+{% block script %}
+{% endblock %}

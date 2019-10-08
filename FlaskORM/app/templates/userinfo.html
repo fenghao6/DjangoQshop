@@ -1,0 +1,72 @@
+{%extends 'base.html'%}
+
+
+{%block style%}
+table{ table-layout:fixed; word-break: break-all; word-wrap: break-word;}
+    {%endblock%}
+{%block content%}
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary" style="font-size: 26px">用户信息</h6>
+                </div>
+                <!--<div class="card-body">-->
+                    <table class="table table-bordered">
+                        <tr>
+                            <td rowspan="4"><img src="../static/img/2.jpeg" alt="" style="width: 100%;height: 100%"></td>
+                            <th>姓名</th>
+                            <td>飞飞</td>
+                            <th>性别</th>
+                            <td>男</td>
+                        </tr>
+                        <tr>
+                            <th>年龄</th>
+                            <td>22</td>
+                            <th>职位</th>
+                            <td>高级讲师</td>
+                        </tr>
+                        <tr>
+                            <th>科目</th>
+                            <td>python</td>
+                            <th>教龄</th>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <th>联系电话</th>
+                            <td >18888688866</td>
+                            <th>地址</th>
+                            <td>河北省邯郸市</td>
+                        </tr>
+                    </table>
+                </div>
+              <!--</div>-->
+
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary" style="font-size: 26px">教学课程表</h6>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>星期一</th>
+                            <th>星期二</th>
+                            <th>星期三</th>
+                            <th>星期四</th>
+                            <th>星期五</th>
+                            <th>星期六</th>
+                            <th>星期日</th>
+                        </tr>
+                        {%for w in calendar%}
+                        <tr>
+                            {%for d in w%}
+                                <td>{{ d }}</td>
+                            {%endfor%}
+                        </tr>
+                        {%endfor%}
+                    </table>
+                </div>
+             </div>
+{%endblock%}
+
+{%block script%}
+
+{%endblock%}

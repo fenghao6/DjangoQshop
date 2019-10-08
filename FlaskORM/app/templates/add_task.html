@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block lable %}
+    教学任务
+{% endblock %}
+
+{% block content %}
+    
+{#    <p>{{ task().name }}</p>#}
+{#    <p>{{ task().description }}</p>#}
+{#    <p>{{ task().public }}</p>#}
+{#    <p>{{ task().time }}</p>#}
+    <form action="" method="post">
+        {% for t in task %}
+            <p>{{ t }}</p>
+        {% endfor %}
+
+        <input type="submit" value="提交" class="btn btn-danger btn-block">
+    </form>
+    
+    
+    
+    
+{% endblock %}
+
+{% block script %}
+{% endblock %}
